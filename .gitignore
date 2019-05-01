@@ -20,3 +20,7 @@
 ###> editors ###
 .idea/
 ###< editors ###
+
+###> public vendors ###
+/public/vendor/
+###> public vendors ###

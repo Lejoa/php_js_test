@@ -12,7 +12,7 @@ class DefaultController extends AbstractController
      */
     public function homepage()
     {
-        return $this->redirectToRoute('frontend_app');
+        return $this->redirectToRoute('index');
     }
 
     /**
@@ -21,8 +21,6 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
+        return $this->render('default/index.html.twig');
     }
 }

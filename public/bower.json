@@ -1,0 +1,24 @@
+{
+  "name": "PHP JS Test",
+  "homepage": "https://github.com/allucardster/php_js_test",
+  "authors": [
+    "Richard Melo <allucardster@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-ui-router": "^1.0.22",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1"
+  }
+}

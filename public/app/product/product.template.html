@@ -1,0 +1,29 @@
+<h1>Products</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="current in product.list track by current.id">
+            <th scope="row">[[ current.id ]]</th>
+            <td>[[ current.name ]]</td>
+            <td>[[ current.description ]]</td>
+            <td>[[ current.price | currency ]]</td>
+            <td>
+                <button type="button" class="btn btn-danger" ng-click="product.delete(current.id, $index)">Delete</button>
+            </td>
+        </tr>
+        <tr ng-if="product.list.length === 0">
+            <td colspan="5">
+                <strong>No results found...</strong>
+            </td>
+        </tr>
+    </tbody>
+</table>
