@@ -5,10 +5,12 @@ namespace App\Entity;
 use App\Util\DeleteableTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
+ * @Serializer\ExclusionPolicy("all")
  */
 class Product
 {
@@ -18,21 +20,25 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Serializer\Expose()
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Expose()
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Expose()
      */
     private $description;
 
     /**
      * @ORM\Column(type="float")
+     * @Serializer\Expose()
      */
     private $price;
 
