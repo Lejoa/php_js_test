@@ -23,6 +23,7 @@ Installation
 - From command line
 ```
 :~$ cd php_js_test
+:~$ composer install
 :~$ touch var/data.db
 :~$ echo "DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db" > .env.local
 :~$ ./bin/console doctrine:schema:update --force
