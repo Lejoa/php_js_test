@@ -1,46 +1,63 @@
 PHP & JS Test
 ============================
 
-* Build a small app in PHP (can be Symfony, Laravel, etc) that has one table/entity `products`. The table should have `id`, `name`, `description`, and `price`
-* Seed a couple of sample products into the DB
-* Build RESTful endpoints to Create Read Update Delete
-* Deletes should be logical, not physical
-* Build a small JavaScript app (can be inside the main PHP or a totally different app) that lists the products and allows the user to delete them
+* Small app in PHP/Symfony that has one table/entity `products` with the following fields: `id`, `name`, `description`, and `price`
+* Default sample products into the DB
+* RESTful endpoints to Create, Read, Update, Delete
+* Logical Delete, not physical
+* Small JavaScript app that lists the products and allows the user to delete them
 
 Requirements
 ============
 
-- PHP >= 7.1.28
+- Docker `>= 18.x`
+- Docker Compose `>= 1.24.x`
+
+Stack
+=====
+
+- PHP 7.1.33
 - Composer
 - Git
 - Bower
 - SQLite
+- AngularJS v1.7.9
 
-Installation
-============
+Setup
+=====
+- Build the containers with:
 
-- Clone this repository
-- From command line
+```sh
+$ docker-compose up -d
 ```
-:~$ cd php_js_test
-:~$ composer install
-:~$ touch var/data.db
-:~$ echo "DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db" > .env.local
-:~$ ./bin/console doctrine:schema:update --force
-:~$ ./bin/console doctrine:fixtures:load
-:~$ cd public
-:~$ bower install
+
+- Install PHP depencencies with:
+
+```sh
+$ docker-compose exec php composer install 
+```
+
+- Install Javascript depencencies with:
+
+```sh
+$ docker-compose exec -w /usr/src/app/public php bower install --allow-root
+```
+
+- Update database schema:
+
+```sh
+$ docker-compose exec php ./bin/console doctrine:schema:update --force
+```
+
+- Load database fixtures:
+
+```sh
+$ docker-compose exec php ./bin/console doctrine:fixtures:load --purge-with-truncate --no-interaction
 ```
 
 How to run it?
 ==============
-- From command line
-```
-:~$ cd php_js_test
-:~$ ./bin/console server:run
-```
-
-- Open the url in the browser
+- Open http://localhost:8082 url at some browser (Chrome, Firefox, etc)
 
 Contributors
 ============
